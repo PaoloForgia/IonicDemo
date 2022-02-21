@@ -1,17 +1,52 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>
-      Tab 1
-    </ion-title>
+    <ion-title>{{title}}</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">Tab 1</ion-title>
+      <ion-title size="large">{{title}}</ion-title>
     </ion-toolbar>
   </ion-header>
 
-  <app-explore-container name="Tab 1 page"></app-explore-container>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-subtitle>Subtitle</ion-card-subtitle>
+      <ion-card-title>Title</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      My content
+      <ion-item>
+        <ion-label position="floating">Floating Label</ion-label>
+        <ion-input [(ngModel)]="input"></ion-input>
+      </ion-item>
+      <ion-button (click)="sendData(input)" expand="block"
+        >Block Button</ion-button
+      >
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Counter</ion-card-title>
+    </ion-card-header>
+    <ion-input placeholder="Number" [(ngModel)]="counter"></ion-input>
+    <ion-button color="primary" (click)="increase()"
+      ><ion-icon name="add-outline"></ion-icon
+    ></ion-button>
+    <ion-button color="secondary" (click)="decrease()"
+      ><ion-icon name="remove-outline"></ion-icon
+    ></ion-button>
+    <ion-button color="success" (click)="payMe()"
+      ><ion-icon name="logo-bitcoin"></ion-icon> Pay me</ion-button
+    >
+  </ion-card>
+
+  <ion-list>
+    <ion-item *ngFor="let item of items" (click)="sendData(item)">
+      {{item}}
+    </ion-item>
+  </ion-list>
 </ion-content>

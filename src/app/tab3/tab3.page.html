@@ -1,8 +1,6 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>
-      Tab 3
-    </ion-title>
+    <ion-title> Tab 3 </ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -13,5 +11,13 @@
     </ion-toolbar>
   </ion-header>
 
-  <app-explore-container name="Tab 3 page"></app-explore-container>
+  <ion-list>
+    <ion-item *ngFor="let beer of jsonData.birre">
+      <ion-thumbnail slot="start">
+        <ion-img [src]="getImgUrl(beer.img)"></ion-img>
+      </ion-thumbnail>
+      <ion-text>{{ beer.name }}</ion-text>
+      <ion-text color="medium" ngClass="description">{{ beer.desc }}</ion-text>
+    </ion-item>
+  </ion-list>
 </ion-content>
